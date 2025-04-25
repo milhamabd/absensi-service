@@ -13,12 +13,12 @@ class Absensi extends Model
         'id_mahasiswa',
         'id_matakuliah',
         'status',
-        'data_mahasiwa',
+        'data_mahasiswa',  // ✅ diperbaiki dari 'data_mahasiwa'
         'data_matakuliah',
     ];
+
     protected $casts = [
         'data_mahasiswa' => 'array',
         'data_matakuliah' => 'array',
     ];
-
 }

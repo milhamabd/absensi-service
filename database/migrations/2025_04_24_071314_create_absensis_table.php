@@ -11,11 +11,16 @@ return new class extends Migration {
             $table->id();
             $table->unsignedBigInteger('id_mahasiswa');
             $table->unsignedBigInteger('id_matakuliah');
-            $table->string('status'); // contoh: hadir, izin, sakit, alpha
-            $table->json('data_mahasiswa')->nullable();
-            $table->json('data_matakuliah')->nullable();
+            $table->string('status'); // hadir, sakit, izin, alpha
+            $table->json('data_mahasiswa')->nullable(); // optional caching
+            $table->json('data_matakuliah')->nullable(); // optional caching
             $table->timestamps();
+        
+            // Tambahkan index kalau ingin performa lebih baik
+            $table->index('id_mahasiswa');
+            $table->index('id_matakuliah');
         });
+        
     }
 
     public function down(): void
